@@ -7,8 +7,8 @@
 |------|----|-------|
 |body|text|null: false|
 |image|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -39,9 +39,9 @@
 |password|integer|null: false, unique: true|
 
 ### Association
-- has_many: members
-- has_many: messages
-- has_many: groups, throuh::members
+- has_many :members
+- has_many :messages
+- has_many :groups, throuh::members
 
 
 
@@ -49,7 +49,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, unique: false|
 |name|sting|null: false, unique: false, index: true|
 |body|text|nill: false|
 
