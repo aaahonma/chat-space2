@@ -1,9 +1,0 @@
-%form.new-message{"accept-charset" => "UTF-8", :action => "/groups/1614/messages", :enctype => "multipart/form-data", :method => "post"}
-  %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-  %input{:name => "authenticity_token", :type => "hidden", :value => "Zrerl2n+YYNlMwrXAw4KQsAEdbwHAYuePXRZe5BeFY4pKJmmndWt8Jta+Y7gDPNzGwmCTxYMabOO9R2p5D7RBA=="}/
-  .input-box
-    %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-    %label.image-label{:for => "message_image"}
-      %i.fa.fa-image
-      %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
-  %input.new-message__submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
