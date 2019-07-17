@@ -13,8 +13,11 @@
         margin-top: 35px;
       }
       &__members{
-        color: #999;
-        display: flex;
+        display: flex; 
+        // ＠mixinで定義してなかった為、変数の呼び出しが出来なかった
+        // 1.mixinの定義をmixinをまとめたファイル内で作成する。
+        // 呼び出しをせず直接記述する。 
+        color: $main_light_gray;
         font-size: 12px;
         margin-top: 15px;
         .member{
@@ -31,13 +34,17 @@
       line-height: 40px;
       margin-top: 28px;
       padding: 0 20px;
+      &__button {
+        color: main_blue;
+        text-decoration: none;
+      }
     }     
   } 
 
   .messages {
     background-color: #FAFAFA;
     box-sizing: border-box;
-    padding: 46px 40px;
+    padding: 46px 40px 0;
     height: calc(100vh - 100px - 90px);
     .message {
       .upper-info {
