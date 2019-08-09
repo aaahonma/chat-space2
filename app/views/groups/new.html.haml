@@ -1,3 +1,63 @@
 .chat-group-form
   %h1 新規チャットグループ
   = render 'form', { group: @group }
+
+
+
+
+
+
+
+
+
+  -# .chat-group-form
+  -# %h1 新規チャットグループ
+  -# = form_for @group do |f|
+  -#   - if @group.errors.any?
+  -#     .chat-group-form__errors
+  -#       %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
+  -#       %ul
+  -#         - @group.errors.full_messages.each do |message|
+  -#           %li= message
+  -#   .chat-group-form__field
+  -#     .chat-group-form__field--left
+  -#       = f.label :name, class: 'chat-group-form__label'
+  -#     .chat-group-form__field--right
+  -#       = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
+  -#   .chat-group-form__field.clearfix
+  -#     / この部分はインクリメンタルサーチ（ユーザー追加の非同期化)のときに使用します
+  -#   .chat-group-form__field.clearfix
+  -#     .chat-group-form__field--left
+  -#       %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
+  -#     .chat-group-form__field--right
+  -#       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+  -#       = f.collection_check_boxes :user_ids, User.all, :id, :name
+  -#       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化)のときにも使用します
+  -#   .chat-group-form__field.clearfix
+  -#     .chat-group-form__field--left
+  -#     .chat-group-form__field--right
+  -#       = f.submit class: 'chat-group-form__action-btn'
+
+
+
+-# まずはgroups_controllerの記述を行なっていきましょう。
+-# 今回必要となるのは、グループの新規作成画面であるnew、グループを保存する処理を行うcreateアクションです。
+
+-# newアクションでは@groupというインスタンス変数を定義しています。
+-# @groupはGroupモデルの新しいインスタンスです。
+-# 「@group.users << current_user」と記述することで、現在ログイン中のユーザーを、新規作成したグループに追加しています。
+
+-# createアクション内はグループ作成の可否にあわせた処理を記述します。
+-# 失敗したときはredirect_toではなく、renderを使用します。
+-# redirect_toがHTTPリクエストを送り、そのレスポンスとして返ってくるビューを表示するのに対し、renderはHTTPリクエストを送らず、該当するビューだけを表示します。
+
+-# 「redirect_to」と「render」の違いについては、下記のqiitaの記事が参考になるため、
+-# 詳しく知りたい方は是非読んでみてください。
+-# https://qiita.com/1ulce/items/282cccba1e44158489c8
+
+-# 続いて、メッセージを作成できるよう、ビューの編集を行います。
+-# 仮置きだったformタグ・inputタグを、form_forを使って書き直しましょう。
+
+-# 最後に、エラーメッセージを表示させましょう。
+-# Railsのモデルにおいて、バリデーションエラーが発生した場合、errors.full_messagesメソッドを利用することで、発生した全てのエラーメッセージを配列で取得することができます。
+-# @group.errors.full_messagesの配列に対し、eachメソッドを用いることで、エラーメッセージを1つずつ取り出しています。

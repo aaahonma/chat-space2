@@ -30,7 +30,7 @@
 
 
 
-## usresテーブル
+## usrsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
