@@ -21,7 +21,6 @@ $(document).on('turbolinks:load', function(){
 
     // $('#form--subumit__send-btn').removeAttr('data-disable-with');
     // var fd = new FormData($this.get(0));
-
     $.ajax({
       url: url,
       type: "POST",
