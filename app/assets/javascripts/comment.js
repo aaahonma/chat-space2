@@ -19,8 +19,6 @@ $(document).on('turbolinks:load', function(){
     var formData = new FormData(this);
     var url = $(this).attr('action')
 
-    // $('#form--subumit__send-btn').removeAttr('data-disable-with');
-    // var fd = new FormData($this.get(0));
     $.ajax({
       url: url,
       type: "POST",
@@ -30,7 +28,6 @@ $(document).on('turbolinks:load', function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data)
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $(".messages")[0].scrollHeight}, "fast");
