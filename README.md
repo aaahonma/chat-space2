@@ -30,7 +30,7 @@
 
 
 
-## usresテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|

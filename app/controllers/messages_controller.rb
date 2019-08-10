@@ -8,18 +8,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @group.messages.new(message_params)
-    if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
-    else
-      @messages = @group.messages.includes(:user)
-      flash.now[:alert] = 'メッセージを入力してください。'
-      render :index
+    @message = Message.create(content: message_params[:content], image: message_params[:image], group_id: @group.id, user_id: current_user.id)
+    respond_to do |format|
+      format.html { redirect_to group_messages_path(@group)  }
+      format.json
     end
   end
 
   private
-
   def message_params
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
   end
@@ -28,3 +24,9 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 end
+
+#message_paramsで定義されたものを入れる.11行目に。
+#Group.find(1)を見つけてね。２４行目。@groupに現在表示されているgroupを代入されている。
+
+#１１行目でmessageを作る。どんなメッセージですかという情報を入れる。gruoup_id: @group
+
