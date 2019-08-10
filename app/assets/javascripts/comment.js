@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(comment){
-    var image = "";
     var MessageImage = (comment.image) ? `<img class="lower-message__image" src="${ comment.image }">`: "";
     var html = `<div class="message">
         <div class="upper-message" data-message-id="${comment.user_id}">
