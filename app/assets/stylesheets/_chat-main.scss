@@ -13,20 +13,20 @@
         margin-top: 35px;
       }
       &__members{
-        display: flex; 
+        display: flex;
         // ＠mixinで定義してなかった為、変数の呼び出しが出来なかった
         // 1.mixinの定義をmixinをまとめたファイル内で作成する。
-        // 呼び出しをせず直接記述する。 
+        // 呼び出しをせず直接記述する。
         color: $main_light_gray;
         font-size: 12px;
         margin-top: 15px;
         .member{
           display: inline-block;
-          padding-right: 5px;        
+          padding-right: 5px;
         }
       }
     }
-    .right-header{      
+    .right-header{
       border: 1px solid $main_blue;
       color: $main_blue;
       float: right;
@@ -38,7 +38,7 @@
         color: main_blue;
         text-decoration: none;
       }
-    }     
+    }
   } 
 
   .messages {
@@ -48,7 +48,7 @@
     height: calc(100vh - 100px - 90px);
     overflow: auto;
     .message {
-      .upper-info {
+      .upper-message {
         display: flex;
         &__user-name {
           color: #434a54;
@@ -61,9 +61,9 @@
           padding-left: 10px;
         }
       }
-      .message-text {
+      .lower-meesage {
         margin-top: 10px;
-        &__speak {
+        .lower-message__content {
           color: #434a54;
           font-size: 14px;
           margin-bottom: 40px;
